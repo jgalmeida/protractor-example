@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>My todos</h2>
+
+  <!-- Todos input -->
+  <form role="form" ng-submit="addTodo()">
+    <div class="row">
+      <div class="input-group">
+        <input type="text" ng-model="todo.description" placeholder="What needs to be done?" class="form-control">
+        <span class="input-group-btn">
+          <input type="submit" class="btn btn-primary" value="Add">
+        </span>
+      </div>
+    </div>
+  </form>
+
+  <!-- Todos list -->
+  <div>
+    <p class="input-group" ng-repeat="todo in todos | filter:statusFilter" style="padding:5px 10px; cursor: move;">
+      <input type="text" ng-model="todo.description" class="form-control">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" ng-click="markComplete(todo)" aria-label="Remove" ng-show="todo.status !== 'completed'">C</button>
+        <button class="btn btn-danger" ng-click="removeTodo(todo, $index)" aria-label="Remove">X</button>
+      </span>
+    </p>
+  </div>
+</div>
+
+<span id="todoCount">
+  <strong id="remainingCount">Remaining {{remainingCount}}</strong>
+  <strong id="completedCount">Completed {{completedCount}}</strong>
+</span>
+
+<ul id="filters" class="nav">
+  <li>
+    <a ng-class="{selected: statusFilter.status == undefined }" href ng-click="filter('')" id="allFilter">All</a>
+  </li>
+  <li >
+    <a ng-class="{selected: statusFilter.status === 'active'}" href ng-click="filter('active')" id="activeFilter">Active</a>
+  </li>
+  <li>
+    <a ng-class="{selected: statusFilter.status === 'completed'}" href ng-click="filter('completed')" id="completedFilter">Completed</a>
+  </li>
+</ul>
+<button id="markCompleted" ng-click="markAllDone()">Mark all done</button>
+<button id="clearCompleted" ng-click="clearDone()" ng-show="remainingCount < todos.length">Clear completed</button>
