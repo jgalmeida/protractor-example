@@ -1,7 +1,6 @@
 {
   "name": "todo",
   "version": "0.0.0",
-  "dependencies": {},
   "repository": {},
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -29,7 +28,8 @@
     "karma-jasmine": "*",
     "karma-phantomjs-launcher": "*",
     "load-grunt-tasks": "^3.1.0",
-    "time-grunt": "^1.0.0"
+    "time-grunt": "^1.0.0",
+    "protractor": "^2.1.0"
   },
   "engines": {
     "node": ">=0.10.0"
