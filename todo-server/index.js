@@ -17,6 +17,8 @@ server.post('/todos', handlers.post);
 server.put('/todos/:id/complete', handlers.complete);
 server.del('/todos/:id', handlers.del);
 
+server.post('/auth', handlers.auth);
+
 server.listen(8080, function () {
     console.log('%s listening at %s', server.name, server.url);
 });

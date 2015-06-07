@@ -19,6 +19,9 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
+      .when('/', {
+        templateUrl: 'views/home.html',
+      })
       .when('/todos', {
         templateUrl: 'views/todos.html',
         controller: 'TodosCtrl',
@@ -27,6 +30,13 @@ angular
           todos: function (TodosService, $route) {
             return TodosService.fetch($route.current.params);
           }
+        }
+      })
+      .when('/signin', {
+        templateUrl: 'views/signin.html',
+        controller: function($scope, AuthService) {
+          $scope.user = {};
+          $scope.authenticate = AuthService.authenticate;
         }
       })
       .when('/about', {

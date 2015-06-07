@@ -2,7 +2,8 @@ module.exports = {
   get: get,
   post: post,
   complete: complete,
-  del: del
+  del: del,
+  auth: auth
 }
 
 var todos = [];
@@ -42,4 +43,8 @@ function del(req, res, next) {
   }
 
   res.send();
+}
+
+function auth(req, res, next) {
+  res.send({username: req.params.username, token: 'magictoken'});
 }

@@ -19,7 +19,7 @@
       <input type="text" ng-model="todo.description" class="form-control">
       <span class="input-group-btn">
         <button class="btn btn-secondary" ng-click="markComplete(todo)" aria-label="Remove" ng-show="todo.status !== 'completed'">C</button>
-        <button class="btn btn-danger" ng-click="removeTodo(todo, $index)" aria-label="Remove">X</button>
+        <button class="btn btn-danger" ng-click="removeTodo(todo)" aria-label="Remove">X</button>
       </span>
     </p>
   </div>

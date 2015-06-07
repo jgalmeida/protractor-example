@@ -48,7 +48,7 @@ angular.module('todoApp')
       }
     };
 
-    $scope.removeTodo = function (todo, index) {
+    $scope.removeTodo = function (todo) {
       TodosService.remove(todo)
         .success(success)
         .error(error);
@@ -56,7 +56,7 @@ angular.module('todoApp')
       function success(res) {
         if(todo.status === 'completed') $scope.completedCount--;
         if(todo.status === 'active') $scope.remainingCount--;
-        $scope.todos.splice(index, 1);
+        $scope.todos.splice($scope.todos.indexOf(todo), 1);
       }
 
       function error(res) {
@@ -75,14 +75,11 @@ angular.module('todoApp')
     }
 
     $scope.clearDone = function() {
-      var completed = $scope.todos
-        .filter(filter)
+      for(var i = 0; i < $scope.todos.length; i++) {
+        var todo = $scope.todos[i];
 
-      var i = completed.length;
-      while(i--) $scope.removeTodo(completed[i], i);
-
-      function filter(todo) {
-        return todo.status === 'completed';
+        if(todo.status === 'completed')
+          $scope.removeTodo(todo);
       }
     }
   });
