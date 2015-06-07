@@ -11,6 +11,8 @@ exports.config = {
     browser.driver.manage().window().setSize(1440, 900);
   },
 
+  framework: 'jasmine2',
+
   specs: ['test/e2e/**/*test.js'],
     getPageTimeout: 10000,
     allScriptsTimeout: 500000,
