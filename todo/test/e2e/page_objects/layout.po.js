@@ -2,6 +2,7 @@
 
 function LayoutPage() {
   var navBar = element(by.css('.nav.navbar-nav'));
+  var currentUser = navBar.element(by.binding('currentUser.name'));
 
   function getTitle() {
     return browser.getTitle();
@@ -15,10 +16,16 @@ function LayoutPage() {
     return navBar.element(by.cssContainingText('a', name));
   }
 
+  function getCurrentUserName() {
+    return currentUser.getText();
+  }
+
   return {
     getTitle: getTitle, 
     getNavigationBar: getNavigationBar,
-    getTab: getTab
+    getTab: getTab,
+    getCurrentUsername: getCurrentUserName,
+    getCurrentUser: currentUser
   }
 }
 
