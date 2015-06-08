@@ -9,6 +9,6 @@ describe('Layout', function() {
   it('should have a navigation bar', function() {
   });
 
-  it('should have a navigation bar elements', function() {
+  it('should have a navigation bar elements: Home, Sign in, About', function() {
   });
 });
