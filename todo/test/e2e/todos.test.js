@@ -6,10 +6,7 @@ describe('Todos', function() {
   var completed = element(by.binding('completedCount'));
 
   beforeAll(function() {
-    browser.get(global.basePath);
-    browser.executeScript('window.sessionStorage.clear();');
-    browser.executeScript("window.sessionStorage.username = 'Jony yld';");
-    browser.executeScript("window.sessionStorage.token = 'magictoken';");
+    require('./helpers/auth').signin('Jony yld');
     browser.get(global.basePath + '#/todos');
 
     element(by.id('markCompleted')).click();
