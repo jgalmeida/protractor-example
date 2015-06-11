@@ -4,7 +4,11 @@ describe('Todos', function() {
     browser.get(global.basePath + '#/todos');
 
     element(by.id('markCompleted')).click();
-    element(by.id('clearCompleted')).click();
+    var clearCompleted = element(by.id('clearCompleted'));
+
+    clearCompleted.isDisplayed(function(isDisplayed) {
+      if(isDisplayed) clearCompleted.click();
+    });
   });
 
   it('Adds 2 todos', function() {
